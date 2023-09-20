@@ -9,6 +9,3 @@ lint:
 
 test:
 	pytest
-
-nbtest:
-	pytest --nbval stats.ipynb

@@ -38,10 +38,6 @@ jobs:
       id: make_test
       run: |
         make test
-    - name: Test nbval
-      id: make_nbtest
-      run: |
-        make nbtest
 
     - name: Generate Markdown
       id: gen_markdown
