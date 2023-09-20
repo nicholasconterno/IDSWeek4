@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.9,'3.10','3.11']
+        python-version: [3.9,'3.10',3.8]
     steps:
     - uses: actions/checkout@v2
 
@@ -38,16 +38,3 @@ jobs:
       id: make_test
       run: |
         make test
-
-    - name: Generate Markdown
-      id: gen_markdown
-      run: |
-        python3 markdownGenerater.py
-
-    - name: Commit and push if there are changes
-      run: |
-        git config --global user.email "nicholas.conterno@duke.edu"
-        git config --global user.name "nicholasconterno"
-        git add generated_markdown.md histogram.png
-        git commit -m "Add generated markdown and histogram" || echo "No changes to commit"
-        git push
